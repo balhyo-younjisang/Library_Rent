@@ -1,0 +1,18 @@
+@charset "UTF-8";
+section {
+	width: 100%;
+	height: calc(100% - 220px);
+	background-color: white;
+}
+
+section button {
+	text-align:center;
+	line-height: 20px;
+	display: block;
+}
+
+table {
+	width: 600px;
+	text-align:center;
+	margin: 0 auto;
+}

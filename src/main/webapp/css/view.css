@@ -1,0 +1,17 @@
+@charset "UTF-8";
+section {
+	width: 100%;
+	height: calc(100% - 220px);
+	background-color: white;
+}
+
+h2 {
+	text-align:center;
+	line-height: 48px;
+}
+
+table {
+	width: 600px;
+	text-align:center;
+	margin: 0 auto;
+}
