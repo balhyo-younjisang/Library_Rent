@@ -6,7 +6,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import util.DBConnection;
-import vo.MemberVO;
+import vo.BookVO;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -16,15 +16,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Servlet implementation class MemberCtrl
+ * Servlet implementation class BookCtrl
  */
-public class MemberCtrl extends HttpServlet {
+public class BookCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MemberCtrl() {
+    public BookCtrl() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,28 +37,27 @@ public class MemberCtrl extends HttpServlet {
 		Connection conn = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
-		List<MemberVO> list = new ArrayList<MemberVO>();
+		List<BookVO> list = new ArrayList<BookVO>();
 		
 		try {
 			conn = DBConnection.getConnection();
-			String sql = "SELECT * FROM MEMBER_TBL_001 ORDER BY CUST_NO";
+			String sql = "SELECT * FROM book_tbl_001 ORDER BY book_code";
 			stmt = conn.prepareStatement(sql);
 			rs = stmt.executeQuery();
 			
 			while(rs.next()) {
-				MemberVO vo = new MemberVO();
-				vo.setCust_name(rs.getString("cust_name"));
-				vo.setCust_no(rs.getInt("cust_no"));
-				vo.setPhone(rs.getString("phone"));
-				vo.setAddress(rs.getString("address"));
+				BookVO vo = new BookVO();
+				vo.setBook_code(rs.getString("book_code"));
+				vo.setBook_name(rs.getString("book_name"));
+				vo.setBook_author(rs.getString("book_author"));
+				vo.setBook_type(rs.getString("book_type"));
+				vo.setIn_date(rs.getDate("in_date"));
 				vo.setStat_fg(rs.getString("stat_fg"));
-				vo.setJoin_date(rs.getDate("join_date"));
-				
 				list.add(vo);
 			}
 			
 			request.setAttribute("list", list);
-			request.getRequestDispatcher("member.jsp").forward(request, response);
+			request.getRequestDispatcher("book.jsp").forward(request, response);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

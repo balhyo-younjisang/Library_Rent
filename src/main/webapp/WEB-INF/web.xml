@@ -48,4 +48,34 @@
     <servlet-name>MemberCtrl</servlet-name>
     <url-pattern>/MemberCtrl</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>MemberAddCtrl</display-name>
+    <servlet-name>MemberAddCtrl</servlet-name>
+    <servlet-class>ctrl.MemberAddCtrl</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MemberAddCtrl</servlet-name>
+    <url-pattern>/MemberAddCtrl</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>MemberEditCtrl</display-name>
+    <servlet-name>MemberEditCtrl</servlet-name>
+    <servlet-class>ctrl.MemberEditCtrl</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MemberEditCtrl</servlet-name>
+    <url-pattern>/MemberEditCtrl</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>BookCtrl</display-name>
+    <servlet-name>BookCtrl</servlet-name>
+    <servlet-class>ctrl.BookCtrl</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BookCtrl</servlet-name>
+    <url-pattern>/BookCtrl</url-pattern>
+  </servlet-mapping>
 </web-app>

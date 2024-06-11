@@ -1,15 +1,15 @@
+<%@page import="vo.BookVO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="vo.MemberVO"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-List<MemberVO> list = (ArrayList<MemberVO>) request.getAttribute("list");
+List<BookVO> list = (ArrayList<BookVO>) request.getAttribute("list");
 
 list.forEach(vo -> {
-	if(vo.getStat_fg().equals("0")) vo.setStat_fg("정상");
-	else if (vo.getStat_fg().equals("1")) vo.setStat_fg("휴면");
-	else vo.setStat_fg("탈퇴");
+	if(vo.getStat_fg().equals("0")) vo.setStat_fg("대여가능");
+	else if (vo.getStat_fg().equals("1")) vo.setStat_fg("대여중");
 });
 
 %>
@@ -25,29 +25,29 @@ list.forEach(vo -> {
 	<%@ include file="./component/header.jsp"%>
 	<%@ include file="./component/nav.jsp"%>
 	<section>
-		<button onclick="location='MemberAddCtrl'" style="margin : 0 auto">회원등록</button>
+		<button onclick="location='BookAddCtrl'" style="margin : 0 auto">도서등록</button>
 		<table border="1">
 			<tr>
 				<th></th>
-				<th><strong>회원번호</strong></th>
-				<th>회원성명</th>
-				<th>핸드폰번호</th>
-				<th>주소</th>
-				<th>가입일자</th>
-				<th>상태구분</th>
+				<th><strong>도서코드</strong></th>
+				<th>도서명</th>
+				<th>장르</th>
+				<th>작가</th>
+				<th>입고일자</th>
+				<th>도서상태</th>
 			<tr>
 				<%
 				for (int i = 0; i < list.size(); i++) {
-					MemberVO vo = list.get(i);
+					BookVO vo = list.get(i);
 				%>
 			
 			<tr>
 				<td><%=i + 1%></td>
-				<td><a href="MemberEditCtrl?cust_no=<%=vo.getCust_no()%>"><%=vo.getCust_no()%></a></td>
-				<td><%=vo.getCust_name()%></td>
-				<td><%=vo.getPhone()%></td>
-				<td><%=vo.getAddress()%></td>
-				<td><%=vo.getJoin_date()%></td>
+				<td><a href="BookEditCtrl?cust_no=<%=vo.getBook_code()%>"><%=vo.getBook_code()%></a></td>
+				<td><%=vo.getBook_name()%></td>
+				<td><%=vo.getBook_type()%></td>
+				<td><%=vo.getBook_author()%></td>
+				<td><%=vo.getIn_date()%></td>
 				<td><%=vo.getStat_fg()%></td>
 			</tr>
 			<%
