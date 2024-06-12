@@ -43,7 +43,7 @@ list.forEach(vo -> {
 			
 			<tr>
 				<td><%=i + 1%></td>
-				<td><a href="BookEditCtrl?cust_no=<%=vo.getBook_code()%>"><%=vo.getBook_code()%></a></td>
+				<td><a href="BookEditCtrl?book_code=<%=vo.getBook_code()%>"><%=vo.getBook_code()%></a></td>
 				<td><%=vo.getBook_name()%></td>
 				<td><%=vo.getBook_type()%></td>
 				<td><%=vo.getBook_author()%></td>
