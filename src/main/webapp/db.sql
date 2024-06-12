@@ -25,6 +25,10 @@ CREATE TABLE book_tbl_001
 	stat_fg varchar2(2)
 );
 
+SELECT NVL(MAX(BOOK_CODE),0) FROM BOOK_TBL_001 WHERE BOOK_CODE LIKE 'A%';
+DELETE FROM BOOK_TBL_001 WHERE BOOK_CODE = 'A003';
+SELECT * FROM BOOK_TBL_001;
+
 INSERT INTO book_tbl_001 VALUES('A0001', '언어의 온도', 'A', '이기주', '20180501', 1);
 INSERT INTO book_tbl_001 VALUES('A0002', '골든아워', 'A', '이국종', '20180501', 1);
 INSERT INTO book_tbl_001 VALUES('B0001', '12가지 인생의 법칙', 'B', '피터슨', '20180601', 1);

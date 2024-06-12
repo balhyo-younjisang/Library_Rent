@@ -88,4 +88,14 @@
     <servlet-name>BookEditCtrl</servlet-name>
     <url-pattern>/BookEditCtrl</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>BookAddCtrl</display-name>
+    <servlet-name>BookAddCtrl</servlet-name>
+    <servlet-class>ctrl.BookAddCtrl</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BookAddCtrl</servlet-name>
+    <url-pattern>/BookAddCtrl</url-pattern>
+  </servlet-mapping>
 </web-app>
